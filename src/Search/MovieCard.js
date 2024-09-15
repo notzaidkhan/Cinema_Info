@@ -1,10 +1,12 @@
 import React from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const MovieCard = ({ movie: { imdbID, Year, Poster, Title, Type } }) => {
+const MovieCard = ({ movie: { imdbID, Year, Poster, Title, Type }}) => {
+
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    window.location.href = `https://www.imdb.com/title/${imdbID}`;
+    navigate('/archiveinput', { state: { imdbID, Year, Poster, Title, Type } });
   };
   
   return (

@@ -74,7 +74,7 @@ h1 {
   cursor: pointer;
 }
 
-/* .search button {
+.search button {
   padding: 20px 40px;
   border-radius: 0.5rem;
   margin-left: 15px;
@@ -87,7 +87,7 @@ h1 {
   background: #1f2123;
   -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
   box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-} */
+}
 
 .empty {
   width: 100%;
@@ -228,4 +228,31 @@ h1 {
     width: "100%";
     margin: 1rem;
   }
+}
+
+/* Star Rating */
+.star-rating {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.star-rating h4 {
+  margin-right: 10px;
+}
+
+/* Comment Display */
+.comment-display {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.comment-display h4 {
+  margin-bottom: 5px;
+}
+
+.comment-display p {
+  font-family: var(--font-raleway);
 }

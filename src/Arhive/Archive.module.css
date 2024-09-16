@@ -48,13 +48,23 @@ body {
   box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
 }
 
-.movie .year  {
+.movie .year {
+  flex: 1;
   position: absolute;
+  display: inline-flex;
+  justify-content: space-between;
   padding: 16px;
   width: 100%;
   opacity: 0;
   top: 0;
   color: #f9d3b4;
+}
+
+.movie .year .close {
+  cursor: pointer;
+  display: inline-block;
+  z-index: 10; 
+  position: relative;
 }
 
 .movie .star {

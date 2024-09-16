@@ -7,6 +7,10 @@ const BACKEND_URL = "http://localhost:8080";
 const Archive = () => {
   const [movies, setMovies] = useState([]);
 
+  const handleRemovedMovie = (id) => {
+    setMovies((prevList) => prevList.filter((movie) => movie.id !== id));
+  };
+
   useEffect(() => {
     const fetchMovies = async () => {
       try {
@@ -35,7 +39,7 @@ const Archive = () => {
         {movies?.length > 0 ? (
           <div className="container">
             {movies.map((movie) => (
-              <ArchiveCard key={movie.id} movie={movie} />
+              <ArchiveCard key={movie.id} movie={movie} url={BACKEND_URL} onDelete = {handleRemovedMovie}/>
             ))}
           </div>
         ) : (

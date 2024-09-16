@@ -1,24 +1,46 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReactStars from "react-stars";
 import styles from './Archive.module.css'; // Importing Archive.module.css
 
-const ArchiveCard = ({ movie: { id, year, poster, title, type, comment, rating } }) => {
+const ArchiveCard = ({ movie: { id, year, poster, title, type, comment, rating }, url, onDelete }) => {
   const navigate = useNavigate();
-  
   useEffect(() => {
     console.log(comment, rating, year, type);
   }, [comment, rating]);
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     window.location.href = `https://www.imdb.com/title/${id}`;
   };
+
+  const handleClose = async (e) => {
+    e.stopPropagation(); 
+    e.preventDefault();
+    try {
+      const response = await fetch(url + `/id/${id}`, {
+        method: 'DELETE',
+        headers :{
+          'Content-Type' : 'application/json',
+        },
+      });
+      if(response.ok) {
+        console.log("Review deleted succesfully!");
+        onDelete(id);
+      }
+      else {
+        throw new Error("Failed to delete Item!");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <div className={styles.archiveCardContainer}>
       <div className={styles.movie} key={id} onClick={handleClick} style={{ cursor: 'pointer' }}>
         <div className={styles.year}>
-          <p>{year}</p>
+          <p className={styles.span}>{year}</p>
+          <p className={styles.close} onClick={handleClose}>x</p>
         </div>
 
         <div>

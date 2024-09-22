@@ -34,6 +34,9 @@ body {
   flex-wrap: wrap;
 }
 
+.commentContainer {
+  background-color: white;
+}
 .movie {
   width: 310px;
   height: 460px;

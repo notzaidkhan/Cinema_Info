@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReactStars from "react-stars";
-import styles from './Archive.module.css'; // Importing Archive.module.css
+import styles from './Archive.module.css'; 
+import NavBar from '../NavBar/NavBar';
 
 const ArchiveCard = ({ movie: { id, year, poster, title, type, comment, rating }, url, onDelete }) => {
   const navigate = useNavigate();
@@ -60,11 +61,11 @@ const ArchiveCard = ({ movie: { id, year, poster, title, type, comment, rating }
           />
         </div>
       </div>
-      {/* <div className={styles.commentContainer}>
+      <div className={styles.commentContainer}>
         <div className={styles.commentDisplay}>
           <p>{comment}</p>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
